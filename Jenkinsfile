@@ -21,7 +21,8 @@ pipeline {
 
     stage('test') {
       steps {
-        withSonarQubeEnv(installationName: 'sonarqube-8.9.2', credentialsId: 'sonarqube_token')
+        withSonarQubeEnv('sonarqube-8.9.2') {
+          sh "mvn sonar:sonar"
       }
     }
 
